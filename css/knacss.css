@@ -56,66 +56,66 @@ th,
 label,
 textarea {
 	font-size: 1em; /* equiv 14px */
-	line-height: 1.5em;
+	line-height: 1.5;
 	margin: 21px 0;
 }
 h1, .h1-like {
 	font-size: 1.8571em; /* equiv 26px */
 	font-weight: normal;
-	line-height: 1.6154em;
+	line-height: 1.6154;
 	margin: 42px 0 21px 0;
 }
 h2, .h2-like {
 	font-size: 1.7143em; /* equiv 24px */
 	font-weight: normal;
-	line-height: 1.75em;
+	line-height: 1.75;
 	margin: 42px 0 21px 0;
 }
 h3, .h3-like {
 	font-size: 1.5714em; /* equiv 22px */
 	font-weight: normal;
-	line-height: 1.909em;
+	line-height: 1.909;
 	margin: 42px 0 21px 0;
 }
 h4, .h4-like {
 	font-size: 1.4286em; /* equiv 20px */
 	font-weight: normal;
-	line-height: 1.05em;
+	line-height: 1.05;
 	margin: 42px 0 21px 0;
 }
 h5, .h5-like {
 	font-size: 1.2857em; /* equiv 18px */
 	font-weight: normal;
-	line-height: 1.1667em;
+	line-height: 1.1667;
 	margin: 42px 0 21px 0;
 }
 h6, .h6-like {
 	font-size: 1.1429em; /* equiv 16px */
 	font-weight: normal;
-	line-height: 1.3125em;
+	line-height: 1.3125;
 	margin: 42px 0 21px 0;
 }
 
 /* alternate font-sizing */
 .smaller {
 	font-size: .7143em; /* equiv 10px */
-	line-height: 2.1em;
+	line-height: 2.1;
 }
 .small {
 	font-size: .8571em; /* equiv 12px */
-	line-height: 1.75em;
+	line-height: 1.75;
 }
 .big {
 	font-size: 1.1429em; /* equiv 16px */
-	line-height: 1.3125em;
+	line-height: 1.3125;
 }
 .bigger {
 	font-size: 1.2857em; /* equiv 18px */
-	line-height: 1.1667em;
+	line-height: 1.1667;
 }
 .biggest {
 	font-size: 1.4286em; /* equiv 20px */
-	line-height: 1.05em;
+	line-height: 1.05;
 }
 
 /* soft reset */
@@ -127,7 +127,7 @@ label {
 }
 ul,
 ol {
-	padding-left: 30px;
+	padding-left: 2em;
 }
 code,
 pre,
@@ -136,7 +136,7 @@ samp {
 	font-family: consolas, 'DejaVu Sans Mono', courier, monospace;
 }
 code { line-height: 1em; }
-table { margin-bottom: 21px; }
+table { margin-bottom: 1.5em; }
 .m-reset { margin: 0 !important; }
 .p-reset { padding: 0 !important; }
 
@@ -170,7 +170,7 @@ img, table, td, blockquote, code, pre, textarea, input, video {
 }
 
 /* you shall not pass */
-textarea, table, td, th, code, pre, samp, div {
+textarea, table, td, th, code, pre, samp, p {
 	word-wrap: break-word;
 	-webkit-hyphens: auto;
 	-moz-hyphens: auto;
@@ -201,16 +201,15 @@ a img { border: 0; }
 /* float layout */
 /* ----------- */
 
-/* block that can contain several .mod , can contain floats */
-.line {}
+/* tutorial : http://knacss.com/demos/tutoriel.html; */
 
 /* module, contains floats */
-.mod { padding: 14px; }
+.mod { 
+	padding: 1em;
+	overflow: hidden;
+}
 
-/* generaly inside .mod, can contain .item */
-.items {}
-
-/* fluid, contains floats, can be placed next to a float */
+/* same as .mod, no paddings */
 .item { overflow: hidden; }
 
 /* table layout */
@@ -224,7 +223,7 @@ a img { border: 0; }
 .col {
 	display: table-cell;
 	vertical-align: top;
-	padding: 14px;
+	padding: 1em;
 }
 
 /* blocks that needs to be placed under floats */
@@ -234,7 +233,7 @@ a img { border: 0; }
 	clear: both;
 }
 
-/* blocks that can contain floats */
+/* blocks that must contain floats */
 .clearfix:before, .clearfix:after,
 .line:before, .line:after,
 .mod:before, .mod:after {
@@ -253,7 +252,7 @@ a img { border: 0; }
 /* left elements */
 .left {
 	float: left;
-	margin-right: 14px;
+	margin-right: 1em;
 }
 .mod.left,
 .col.left {
@@ -263,11 +262,15 @@ a img { border: 0; }
 /* right elements */
 .right {
 	float: right;
-	margin-left: 14px;
+	margin-left: 1em;
 }
 .mod.right,
 .col.right {
 	margin-left: 0;
+}
+
+img.left, img.right {
+	margin-bottom: 5px;
 }
 
 .center    { margin: auto; }
@@ -275,12 +278,15 @@ a img { border: 0; }
 .txtright  { text-align: right; }
 .txtcenter { text-align: center; }
 
+/* gutters (for row and lines)    */
+/* ------------------------------ */
+
 /* 1em gutter between elements if parent is .gut */
 .row.gut > * + * {
-	border-left: 14px solid #fff; /* must be color of parent background */
+	border-left: 1em solid #fff; /* must be color of parent background */
 }
-.line.gut > .left  { margin-right: 14px; }
-.line.gut > .right { margin-left: 14px; }
+.line.gut > .left  { margin-right: 1em; }
+.line.gut > .right { margin-left: 1em; }
 
 /* "multicolumns" with % gutter */
 .line.gut2 > *     { width: 49%; }
@@ -484,11 +490,18 @@ label {
 /* quick tablet reset */
 @media (max-width: 768px) {
 	.tablet-hidden { display: none; }
-	[class*="mw"],
-	[class*="w9"],
-	[class*="w8"],
-	[class*="w7"],
-	[class*="w6"] {
+	.w60,
+	.w66,
+	.w70,
+	.w75,
+	.w80,
+	.w90,
+	.w100,
+	.w600p,
+	.w700p,
+	.w800p,
+	.w960p,
+	.mw960p {
 		width: auto;
 	}
 }
@@ -507,12 +520,19 @@ label {
 		float: none !important;
 		width: auto !important;
 	}
-	[class*="w5"],
-	[class*="w4"],
-	[class*="w3"] {
+	.w30,
+	.w33, 
+	.w40,
+	.w50,
+	.w300p,
+	.w400p,
+	.w500p {
 		width: auto;
 	}
-	.row { width: 100% !important; }
+	.row { 
+		display: block !important;
+		width: 100% !important;
+	}
 }
 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
@@ -520,7 +540,7 @@ label {
 }
 
 /* orientation iOS font-size fix */
-@media (orientation: landscape) and (max-device-width: 640px) {
+@media (orientation: landscape) and (max-device-width: 768px) {
 	html,
 	body {
 		-webkit-text-size-adjust: 100%;
